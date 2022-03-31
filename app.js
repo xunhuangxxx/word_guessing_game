@@ -6,6 +6,9 @@ const overlay = document.querySelector('#overlay');
 const phrases = ['red dress', 'two birds', 'go to park', 'old city', 'apple juice'];
 const hearts = document.querySelectorAll('.tries');
 
+
+
+//create reset button
 const reset = document.createElement('button');
 reset.textContent = 'Reset';
 reset.style.display = 'none';
@@ -40,12 +43,15 @@ function addPhraseToDisplay(arr){
   for(let i = 0; i < randomPhrase.length; i++){
     const listItem = document.createElement('li');
     listItem.textContent = randomPhrase[i];
+    listItem.style.transition = 'all 3s';
+    console.log('fffff');
     if(listItem.textContent !== ' '){
       listItem.className = 'letter';
     }
     ul.appendChild(listItem);
   }
 }
+
 
 //check letters to match the letter in the button the player has chosen
 function checkLetter(letterBtn){
@@ -112,6 +118,7 @@ reset.addEventListener('click', function(){
   const list = document.querySelectorAll('#phrase li');
   const imgs = document.querySelectorAll('img');
   const buttons = qwerty.querySelectorAll('button');
+
   for(let i = 0; i< imgs.length; i++){
     imgs[i].src = 'images/liveHeart.png';
   }
@@ -121,8 +128,8 @@ reset.addEventListener('click', function(){
   for(let i = 0; i< buttons.length; i++){
     buttons[i].className = '';
     buttons[i].removeAttribute('disabled');
-
   }
+
   getRandomPhraseAsArray(phrases);
   addPhraseToDisplay(phrases);
 })
