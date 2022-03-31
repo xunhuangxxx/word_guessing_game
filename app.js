@@ -22,7 +22,6 @@ startGame.addEventListener('click', function(){
   addPhraseToDisplay(phrases);
 });
 
-
 function getRandomNumber(num){
   const randomNum = Math.floor(Math.random() * num);
   return randomNum;
