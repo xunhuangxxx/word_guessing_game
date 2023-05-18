@@ -3,7 +3,7 @@ const phrase = document.querySelector('#phrase');
 let missed = 0;
 const startGame = document.querySelector('.btn__reset');
 const overlay = document.querySelector('#overlay');
-const phrases = ['red dress', 'two birds', 'go to park', 'old city', 'apple juice'];
+const phrases = ['rainforest', 'palmtree', 'jackfruit', 'avocado', 'croissant', 'jungle', 'fireworks'];
 const hearts = document.querySelectorAll('.tries');
 
 
@@ -70,17 +70,21 @@ function checkLetter(letterBtn){
 function checkWin() {
   const classLetter = document.querySelectorAll('.letter');
   const classShow = document.querySelectorAll('.show');
+  const startButton = document.querySelector("#begin");
   if(missed >= hearts.length){
     overlay.style.display = 'block';
     overlay.className = 'lose';
     overlay.querySelector('h2').textContent ="Sorry! Better luck next time.";
+    startButton.style.display = 'none';
     reset.style.display = 'block';
+    
     return;
   }
   if(classLetter.length === classShow.length){
     overlay.style.display = 'block';
     overlay.className = 'win';
     overlay.querySelector('h2').textContent ='Congrats! You guessed the correct phrase!';
+    startButton.style.display = 'none'
     reset.style.display = 'block';
   }
 
